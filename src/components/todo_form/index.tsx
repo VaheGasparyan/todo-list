@@ -4,10 +4,10 @@ const TodoForm = () => {
     return (
         <form>
             <div className="input">
-                <input type="text" placeholder='Add task...'/>
+                <input type="text" placeholder='+ Add task...'/>
             </div>
             <div className="btn">
-                <button>Add</button>
+                <button>Add +</button>
             </div>
         </form>
     );
