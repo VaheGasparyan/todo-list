@@ -1,0 +1,31 @@
+.todo_list {
+    height: 400px;
+    width: 100%;
+
+}
+
+.todo_list .elements {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #C9D6DF;
+    margin-top: 15px;
+}
+
+.todo_list .elements .left {
+    display: flex;
+    align-items: center;
+}
+
+.todo_list .elements p {
+    color: #F9ED69;
+    font-size: 18px;
+}
+
+.todo_list .elements .left svg {
+    color: #F9ED69;
+}
+
+.todo_list .elements .right svg {
+    color: #FC2947;
+}

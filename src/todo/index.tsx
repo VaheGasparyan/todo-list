@@ -1,12 +1,15 @@
 import {useReducer} from "react";
 
-import TodoForm from "components/todo_form";
-import Footer from "components/footer";
-
-import './todo.css';
 import {todosReducer} from "todosReducer";
 import {ITodo} from "interfaces/todoState";
-import {todos} from "todos";
+import {todos} from "todosInitailState";
+
+import TodoForm from "components/todo_form";
+import Footer from "components/footer";
+import DrawTodo from "components/drawTodo";
+
+import './todo.css';
+
 
 const Todo = () => {
     const [todo, dispatch] = useReducer(todosReducer, todos);
@@ -14,6 +17,7 @@ const Todo = () => {
     return (
         <div className='todo'>
             <TodoForm />
+            <DrawTodo todo={todo} />
             <Footer />
         </div>
     );
