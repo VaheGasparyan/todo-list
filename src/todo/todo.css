@@ -1,0 +1,7 @@
+.todo {
+    width: 600px;
+    height: 400px;
+    border: 3px solid #222831;
+    border-radius: 10px;
+    box-shadow: 0px 0px 7px 1px gray;
+}

@@ -1,7 +1,11 @@
+import Todo from "todo";
+
+import './App.css';
+
 const App = () => {
   return (
     <div className="App">
-
+      <Todo />
     </div>
   );
 }
