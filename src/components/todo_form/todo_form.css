@@ -1,0 +1,25 @@
+form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+form .input input {
+    font-size: 25px;
+    padding: 5px 0px 5px 20px;
+    border: 0px;
+    border-radius: 7px;
+    width: 420px;
+    outline: none;
+}
+
+form .btn button {
+    font-size: 20px;
+    padding: 9px 15px 9px 15px;
+    border: 0px;
+    border-radius: 6px;
+    cursor: pointer;
+    background: #F9ED69;
+    color: #000;
+    font-weight: bold;
+}
