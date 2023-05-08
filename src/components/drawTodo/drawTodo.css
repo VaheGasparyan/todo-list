@@ -1,6 +1,7 @@
 .todo_list {
     height: 400px;
     width: 100%;
+    overflow: auto;
 
 }
 
@@ -28,4 +29,5 @@
 
 .todo_list .elements .right svg {
     color: #FC2947;
+    cursor: pointer;
 }
