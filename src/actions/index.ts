@@ -1,15 +1,18 @@
 const actionsTypes = {
     add: 'add_todos',
-    delete: 'delete'
+    delete: 'delete',
+    edit: 'edit',
+    close: 'close'
 }
 
-const createAddAction = (id: string, completed: boolean, text: string) => {
+const createAddAction = (id: string, completed: boolean, text: string, isEdit: boolean) => {
     return {
         type: actionsTypes.add,
         payload: {
             id,
             completed,
-            text
+            text,
+            isEdit
         }
     }
 }
@@ -23,4 +26,23 @@ const createDeleteAction = (id: string) => {
     }
 }
 
-export {actionsTypes, createAddAction, createDeleteAction};
+const createEditAction = (id: string, inputValue?: string) => {
+    return {
+        type: actionsTypes.edit,
+        payload: {
+            id,
+            inputValue,
+        }
+    }
+}
+
+const createCloseAction = (id: string) => {
+    return {
+        type: actionsTypes.close,
+        payload: {
+            id,
+        }
+    }
+}
+
+export {actionsTypes, createAddAction, createDeleteAction, createEditAction, createCloseAction};

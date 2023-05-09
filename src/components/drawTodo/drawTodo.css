@@ -11,6 +11,7 @@
     align-items: center;
     border-bottom: 1px solid #C9D6DF;
     margin-top: 15px;
+    padding: 0px 0px 15px 0px;
 }
 
 .todo_list .elements .left {
@@ -18,16 +19,45 @@
     align-items: center;
 }
 
+.todo_list .elements .left input {
+    font-size: 18px;
+    outline: none;
+    border: 0px;
+    padding: 2px 0px 2px 7px;
+    background: #222831;
+    border-bottom: 1px solid #C9D6DF;
+    color: #F9ED69;
+}
+
 .todo_list .elements p {
     color: #F9ED69;
     font-size: 18px;
+    margin: 0px;
 }
 
 .todo_list .elements .left svg {
     color: #F9ED69;
 }
 
-.todo_list .elements .right svg {
+.todo_list .elements .right {
+    display: flex;
+    align-items: center;
+}
+
+.todo_list .elements .right .delete {
+    cursor: pointer;
+}
+
+.todo_list .elements .right .edit {
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+.todo_list .elements .right .delete svg {
     color: #FC2947;
     cursor: pointer;
+}
+
+.todo_list .elements .right .edit svg:first-child {
+    color: #F9ED69;
 }

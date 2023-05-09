@@ -1,5 +1,6 @@
 export interface ITodo {
     text: string;
     id: string;
-    completed: boolean
+    completed: boolean,
+    isEdit: boolean
 }
