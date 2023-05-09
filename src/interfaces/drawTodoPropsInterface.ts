@@ -1,5 +1,6 @@
 import {ITodo} from "./todoState";
 
 export interface IDrawTodoPropsInterface {
-    todo: ITodo[]
+    todo: ITodo[];
+    handleDelete: (id: string) => void
 }

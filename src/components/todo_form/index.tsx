@@ -22,7 +22,7 @@ const TodoForm: FC <IFormProps> = ({ handleSubmit }) => {
                 <input onChange={changeInputValue} value={inputValue} type="text" name='form_input' placeholder='Add task...'/>
             </div>
             <div className="btn">
-                <button>Add</button>
+                <button>Add +</button>
             </div>
         </form>
     );
