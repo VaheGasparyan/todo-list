@@ -10,8 +10,9 @@ import CancelIcon from '@mui/icons-material/Cancel';
 
 import './drawTodo.css';
 
-const DrawTodo: FC<IDrawTodoPropsInterface> = ({ todo, handleDelete, handleEdit, handleClose }) => {
+const DrawTodo: FC<IDrawTodoPropsInterface> = ({ todo, handleDelete, handleEdit, handleClose, handleChecked }) => {
     const [inputValue, setInputValue] = useState('');
+
     const onDelete= (event: any) => {
         handleDelete(event.target.parentNode.id);
     }
@@ -35,8 +36,8 @@ const DrawTodo: FC<IDrawTodoPropsInterface> = ({ todo, handleDelete, handleEdit,
                 return(
                     <div className='elements' key={item.id}>
                         <div className="left">
-                            <Checkbox />
-                            {item.isEdit ? <input placeholder='Edit text...' type="text" onChange={handleChange} value={inputValue} /> : <p>{item.text}</p>}
+                            <Checkbox onChange={handleChecked} id={item.id} checked={item.checked} />
+                            {item.isEdit ? <input placeholder='Edit text...' type="text" onChange={handleChange} value={inputValue} /> : <p className={item.checked ? 'checked' : ''}>{item.text}</p>}
                         </div>
                         <div className="right">
                             <div className="edit" id={item.id}>

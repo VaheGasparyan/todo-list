@@ -26,6 +26,16 @@ export const todosReducer = (prevState: ITodo[], action: any) => {
                 }
 
                 return todo
+            });
+        case actionsTypes.checked:
+            return prevState.map(todo => {
+                if(action.payload.id === todo.id) {
+                    return {
+                        ...todo,
+                        checked: !todo.checked
+                    }
+                }
+                return todo
             })
         default: return prevState;
     }
