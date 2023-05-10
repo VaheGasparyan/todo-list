@@ -1,5 +1,5 @@
 import {ITodo} from "./todoState";
 
 export interface IFooterPropsInterface {
-    todo: ITodo[]
+    todo: ITodo[];
 }

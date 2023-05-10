@@ -4,14 +4,12 @@ export const todos:ITodo[] = [
     {
         text: 'hello',
         id: '1',
-        completed: false,
         isEdit: false,
         checked: false
     },
     {
         text: 'hello',
         id: '2',
-        completed: false,
         isEdit: false,
         checked: false
     }

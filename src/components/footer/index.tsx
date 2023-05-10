@@ -1,8 +1,9 @@
-import './footer.css';
-import {MaterialUISwitch} from "../switch";
 import {FC} from "react";
+
+import {MaterialUISwitch} from "../switch";
 import {IFooterPropsInterface} from "interfaces/footerPropsInterface";
 
+import './footer.css';
 const Footer:FC <IFooterPropsInterface> = ({ todo }) => {
     return (
         <footer>
@@ -12,7 +13,7 @@ const Footer:FC <IFooterPropsInterface> = ({ todo }) => {
                 </div>
                 <span className='slash'>/</span>
                 <div className="completed">
-                    <p>completed tasks 0</p>
+                    <p>completed tasks {todo.filter(item => item.checked).length}</p>
                 </div>
             </div>
             <div className="switch">

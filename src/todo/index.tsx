@@ -1,9 +1,10 @@
-import {ChangeEvent, FormEvent, useReducer} from "react";
+import {ChangeEvent, FormEvent, useEffect, useReducer, useState} from "react";
 
 import {todosReducer} from "todosReducer";
 import {ITodo} from "interfaces/todoState";
 import {todos} from "todosInitailState";
 import { v4 as uuid } from 'uuid';
+import {filterCompletedTodos} from "utils/filterCompletedTodos";
 import {createAddAction, createDeleteAction, createEditAction, createCloseAction, createCheckedAction} from "actions";
 
 import TodoForm from "components/todo_form";
@@ -38,7 +39,6 @@ const Todo = () => {
     }
 
     const handleChecked = (event: ChangeEvent<HTMLInputElement>) => {
-        console.log(event.target.id);
         dispatch(createCheckedAction(event.target.id));
     }
 
