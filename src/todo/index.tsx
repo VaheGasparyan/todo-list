@@ -1,10 +1,10 @@
-import {ChangeEvent, FormEvent, useReducer, useContext} from "react";
+import {ChangeEvent, FormEvent, useReducer, useContext, useEffect} from "react";
 
 import {todosReducer} from "todosReducer";
 import {ITodo} from "interfaces/todoState";
-import {todos} from "todosInitailState";
 import { v4 as uuid } from 'uuid';
 import {filterCompletedTodos} from "utils/filterCompletedTodos";
+import {getLocalStorageTodos, setLocalStorageTodosValue} from "utils/setAndGetLocalStorageValue";
 import {createAddAction, createDeleteAction, createEditAction, createCloseAction, createCheckedAction} from "actions";
 import { ThemeContext } from "App";
 
@@ -16,11 +16,11 @@ import './todo.css';
 
 
 const Todo = () => {
-    const [todo, dispatch] = useReducer(todosReducer, todos);
+    const [todo, dispatch] = useReducer(todosReducer, getLocalStorageTodos());
     const {theme} = useContext(ThemeContext);
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>, inputValue: string) => {
-        event.preventDefault()
+        event.preventDefault();
         dispatch(createAddAction(uuid(), false, inputValue, false, false));
     }
 

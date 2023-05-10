@@ -1,3 +1,5 @@
+import {ITodo} from "../interfaces/todoState";
+
 const getLocalStorageValue = () => {
     const theme = localStorage.getItem('theme')
     if(theme) {
@@ -11,4 +13,14 @@ const setLocalStorageValue = (theme: string) => {
     localStorage.setItem('theme', theme);
 }
 
-export { getLocalStorageValue, setLocalStorageValue };
+const setLocalStorageTodosValue = (todo: ITodo[]) => {
+    localStorage.setItem('todos', JSON.stringify(todo));
+}
+
+const getLocalStorageTodos = () => {
+    const todos = JSON.parse(localStorage.getItem('todos') as string);
+
+    return todos ? todos : [];
+}
+
+export { getLocalStorageValue, setLocalStorageValue, setLocalStorageTodosValue, getLocalStorageTodos };

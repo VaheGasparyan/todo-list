@@ -3,18 +3,27 @@ import {actionsTypes} from "actions";
 import {filterState} from "utils/filterState";
 import { changeIsEdit } from 'utils/changeIsEdit';
 import { changeText } from 'utils/changeText';
+import {setLocalStorageTodosValue} from "../utils/setAndGetLocalStorageValue";
 
 export const todosReducer = (prevState: ITodo[], action: any) => {
     switch (action.type) {
         case actionsTypes.add:
-            return [{...action.payload}, ...prevState];
+            const newTodos = [{...action.payload}, ...prevState];
+            setLocalStorageTodosValue(newTodos);
+            return newTodos;
         case actionsTypes.delete:
-            return filterState(prevState, action.payload.id);
+            const filteredTodos = filterState(prevState, action.payload.id);
+            setLocalStorageTodosValue(filteredTodos);
+            return filteredTodos;
         case actionsTypes.edit:
             if(!action.payload.inputValue) {
-                return changeIsEdit(prevState, action.payload.id);
+                const newTodos = changeIsEdit(prevState, action.payload.id);
+                setLocalStorageTodosValue(newTodos);
+                return newTodos
             } else {
-                return changeText(prevState, action.payload.id, action.payload.inputValue);
+                const newTodos = changeText(prevState, action.payload.id, action.payload.inputValue);
+                setLocalStorageTodosValue(newTodos);
+                return newTodos;
             }
         case actionsTypes.close:
             return prevState.map(todo => {

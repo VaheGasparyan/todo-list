@@ -21,6 +21,7 @@
 
 .todo.light form .input input {
     background: #222831;
+    color: #fff;
 }
 
 .todo.light form .input input::placeholder {
