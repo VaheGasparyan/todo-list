@@ -7,7 +7,7 @@ import {IFooterPropsInterface} from "interfaces/footerPropsInterface";
 
 import './footer.css';
 const Footer:FC <IFooterPropsInterface> = ({ todo }) => {
-    const { changeTheme } = useContext(ThemeContext);
+    const { changeTheme, theme } = useContext(ThemeContext);
 
     return (
         <footer>
@@ -21,7 +21,7 @@ const Footer:FC <IFooterPropsInterface> = ({ todo }) => {
                 </div>
             </div>
             <div className="switch">
-                <MaterialUISwitch onClick={changeTheme} />
+                <MaterialUISwitch onClick={changeTheme} checked={theme === 'dark' ? false : true} />
             </div>
         </footer>
     );
