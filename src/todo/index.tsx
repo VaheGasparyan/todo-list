@@ -1,10 +1,10 @@
-import {FormEvent, useReducer} from "react";
+import {ChangeEvent, FormEvent, useReducer} from "react";
 
 import {todosReducer} from "todosReducer";
 import {ITodo} from "interfaces/todoState";
 import {todos} from "todosInitailState";
 import { v4 as uuid } from 'uuid';
-import {createAddAction, createDeleteAction, createEditAction, createCloseAction} from "actions";
+import {createAddAction, createDeleteAction, createEditAction, createCloseAction, createCheckedAction} from "actions";
 
 import TodoForm from "components/todo_form";
 import Footer from "components/footer";
@@ -18,7 +18,7 @@ const Todo = () => {
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>, inputValue: string) => {
         event.preventDefault()
-        dispatch(createAddAction(uuid(), false, inputValue, false));
+        dispatch(createAddAction(uuid(), false, inputValue, false, false));
     }
 
     const handleEdit = (id: string, inputValue?: string) => {
@@ -37,10 +37,15 @@ const Todo = () => {
         dispatch(createDeleteAction(id));
     }
 
+    const handleChecked = (event: ChangeEvent<HTMLInputElement>) => {
+        console.log(event.target.id);
+        dispatch(createCheckedAction(event.target.id));
+    }
+
     return (
         <div className='todo'>
             <TodoForm handleSubmit={handleSubmit} />
-            <DrawTodo todo={todo} handleDelete={handleDelete} handleEdit={handleEdit} handleClose={handleClose} />
+            <DrawTodo todo={todo} handleDelete={handleDelete} handleEdit={handleEdit} handleClose={handleClose} handleChecked={handleChecked} />
             <Footer todo={todo} />
         </div>
     );

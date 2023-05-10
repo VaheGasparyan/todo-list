@@ -35,6 +35,10 @@
     margin: 0px;
 }
 
+.todo_list .elements p.checked {
+    text-decoration: line-through #000 4px;
+}
+
 .todo_list .elements .left svg {
     color: #F9ED69;
 }
