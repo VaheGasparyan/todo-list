@@ -1,10 +1,10 @@
-import {useState, createContext, useEffect} from "react";
+import {useState, createContext} from "react";
 import {themeChange} from "utils/themeChange";
+import {getLocalStorageValue, setLocalStorageValue} from "utils/setAndGetLocalStorageValue";
 
 import Todo from "todo";
 
 import './App.css';
-import {getLocalStorageValue, setLocalStorageValue} from "./utils/setAndGetLocalStorageValue";
 
 export const ThemeContext = createContext({
     theme: 'light',

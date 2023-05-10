@@ -3,7 +3,7 @@ import {actionsTypes} from "actions";
 import {filterState} from "utils/filterState";
 import { changeIsEdit } from 'utils/changeIsEdit';
 import { changeText } from 'utils/changeText';
-import {setLocalStorageTodosValue} from "../utils/setAndGetLocalStorageValue";
+import {setLocalStorageTodosValue} from "utils/setAndGetLocalStorageValue";
 
 export const todosReducer = (prevState: ITodo[], action: any) => {
     switch (action.type) {

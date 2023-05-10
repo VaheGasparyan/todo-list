@@ -1,10 +1,8 @@
-import {ChangeEvent, FormEvent, useReducer, useContext, useEffect} from "react";
+import {ChangeEvent, FormEvent, useReducer, useContext} from "react";
 
 import {todosReducer} from "todosReducer";
-import {ITodo} from "interfaces/todoState";
 import { v4 as uuid } from 'uuid';
-import {filterCompletedTodos} from "utils/filterCompletedTodos";
-import {getLocalStorageTodos, setLocalStorageTodosValue} from "utils/setAndGetLocalStorageValue";
+import {getLocalStorageTodos} from "utils/setAndGetLocalStorageValue";
 import {createAddAction, createDeleteAction, createEditAction, createCloseAction, createCheckedAction} from "actions";
 import { ThemeContext } from "App";
 

@@ -1,4 +1,4 @@
-import {ITodo} from "../interfaces/todoState";
+import {ITodo} from "interfaces/todoState";
 
 const getLocalStorageValue = () => {
     const theme = localStorage.getItem('theme')
