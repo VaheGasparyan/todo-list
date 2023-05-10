@@ -1,10 +1,14 @@
-import {FC} from "react";
+import {FC, useContext} from "react";
+
+import { ThemeContext } from "App";
 
 import {MaterialUISwitch} from "../switch";
 import {IFooterPropsInterface} from "interfaces/footerPropsInterface";
 
 import './footer.css';
 const Footer:FC <IFooterPropsInterface> = ({ todo }) => {
+    const { changeTheme } = useContext(ThemeContext);
+
     return (
         <footer>
             <div className="wrapper">
@@ -17,7 +21,7 @@ const Footer:FC <IFooterPropsInterface> = ({ todo }) => {
                 </div>
             </div>
             <div className="switch">
-                <MaterialUISwitch />
+                <MaterialUISwitch onClick={changeTheme} />
             </div>
         </footer>
     );

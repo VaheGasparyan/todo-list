@@ -13,10 +13,6 @@ import './drawTodo.css';
 const DrawTodo: FC<IDrawTodoPropsInterface> = ({ todo, handleDelete, handleEdit, handleClose, handleChecked }) => {
     const [inputValue, setInputValue] = useState('');
 
-    const onDelete= (event: any) => {
-        handleDelete(event.target.parentNode.id);
-    }
-
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         setInputValue(event.target.value);
     }
@@ -24,10 +20,6 @@ const DrawTodo: FC<IDrawTodoPropsInterface> = ({ todo, handleDelete, handleEdit,
     const onEdit = (event: any) => {
         handleEdit(event.target.parentNode.id, inputValue);
         setInputValue('');
-    }
-
-    const onClose = (event: any) => {
-        handleClose(event.target.parentNode.id);
     }
 
     return (
@@ -44,7 +36,7 @@ const DrawTodo: FC<IDrawTodoPropsInterface> = ({ todo, handleDelete, handleEdit,
                                 {item.isEdit ? <FileDownloadDoneIcon onClick={onEdit} fontSize='large' id={item.id} /> : <EditIcon onClick={onEdit} fontSize='large' id={item.id} />}
                             </div>
                             <div className="delete" id={item.id}>
-                                {item.isEdit ? <CancelIcon onClick={onClose} fontSize='large' id={item.id} /> : <DeleteSweepIcon onClick={onDelete} id={item.id} fontSize='large'/>}
+                                {item.isEdit ? <CancelIcon onClick={handleClose} fontSize='large' id={item.id} /> : <DeleteSweepIcon onClick={handleDelete} id={item.id} fontSize='large'/>}
                             </div>
                         </div>
                     </div>

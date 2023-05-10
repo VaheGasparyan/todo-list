@@ -1,4 +1,4 @@
-import {ChangeEvent, FormEvent, useEffect, useReducer, useState} from "react";
+import {ChangeEvent, FormEvent, useReducer, useContext} from "react";
 
 import {todosReducer} from "todosReducer";
 import {ITodo} from "interfaces/todoState";
@@ -6,6 +6,7 @@ import {todos} from "todosInitailState";
 import { v4 as uuid } from 'uuid';
 import {filterCompletedTodos} from "utils/filterCompletedTodos";
 import {createAddAction, createDeleteAction, createEditAction, createCloseAction, createCheckedAction} from "actions";
+import { ThemeContext } from "App";
 
 import TodoForm from "components/todo_form";
 import Footer from "components/footer";
@@ -16,6 +17,7 @@ import './todo.css';
 
 const Todo = () => {
     const [todo, dispatch] = useReducer(todosReducer, todos);
+    const {theme} = useContext(ThemeContext);
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>, inputValue: string) => {
         event.preventDefault()
@@ -30,12 +32,12 @@ const Todo = () => {
         }
     }
 
-    const handleClose = (id: string) => {
-        dispatch(createCloseAction(id));
+    const handleClose = (event: any) => {
+        dispatch(createCloseAction(event.target.parentNode.id));
     }
 
-    const handleDelete = (id: string) => {
-        dispatch(createDeleteAction(id));
+    const handleDelete = (event: any) => {
+        dispatch(createDeleteAction(event.target.parentNode.id));
     }
 
     const handleChecked = (event: ChangeEvent<HTMLInputElement>) => {
@@ -43,7 +45,7 @@ const Todo = () => {
     }
 
     return (
-        <div className='todo'>
+        <div className={theme === 'light' ? 'todo light' : 'todo dark'}>
             <TodoForm handleSubmit={handleSubmit} />
             <DrawTodo todo={todo} handleDelete={handleDelete} handleEdit={handleEdit} handleClose={handleClose} handleChecked={handleChecked} />
             <Footer todo={todo} />
