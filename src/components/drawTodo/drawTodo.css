@@ -41,6 +41,7 @@
 
 .todo_list .elements .left svg {
     color: #F9ED69;
+    cursor: pointer;
 }
 
 .todo_list .elements .right {
