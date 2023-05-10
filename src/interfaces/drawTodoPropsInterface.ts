@@ -3,8 +3,8 @@ import {ChangeEvent} from "react";
 
 export interface IDrawTodoPropsInterface {
     todo: ITodo[];
-    handleDelete: (id: string) => void;
+    handleDelete: (event: any) => void;
     handleEdit: (id: string, inputValue?: string) => void;
-    handleClose: (id: string) => void;
+    handleClose: (event: any) => void;
     handleChecked: (event: ChangeEvent<HTMLInputElement>) => void;
 }

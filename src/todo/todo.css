@@ -9,3 +9,44 @@
     background: #222831;
     padding: 20px;
 }
+
+.todo.light {
+    background: #fff;
+    box-shadow: 0px 0px 0px 0px;
+}
+
+.todo.dark {
+    background: #222831;
+}
+
+.todo.light form .input input {
+    background: #222831;
+}
+
+.todo.light form .input input::placeholder {
+    color: #fff;
+}
+
+.todo.dark form .input input::placeholder {
+    color: #222831;
+}
+
+.todo.light form .btn button {
+    background: #222831;
+    color: #F9ED69;
+}
+
+.todo .todo_list .elements {
+    padding-right: 10px;
+}
+
+.todo.light .todo_list .elements {
+    background: #222831;
+    border-radius: 5px;
+}
+
+.todo footer {
+    background: #222831;
+    padding-left: 10px;
+    border-radius: 5px;
+}

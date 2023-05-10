@@ -5,3 +5,11 @@
     height: 100vh;
     width: 100%;
 }
+
+.App.light {
+    background: #222831;
+}
+
+.App.dark {
+    background: #fff;
+}
