@@ -1,13 +1,12 @@
-import {FC, useContext} from "react";
-
-import { ThemeContext } from "App";
+import {FC} from "react";
+import {useThemeContext} from "customHooks";
 
 import {MaterialUISwitch} from "../switch";
 import {IFooterPropsInterface} from "interfaces/footerPropsInterface";
 
 import './footer.css';
 const Footer:FC <IFooterPropsInterface> = ({ todo }) => {
-    const { changeTheme, theme } = useContext(ThemeContext);
+    const { changeTheme, theme } = useThemeContext();
 
     return (
         <footer>

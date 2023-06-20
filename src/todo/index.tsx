@@ -1,10 +1,11 @@
 import {ChangeEvent, FormEvent, useReducer, useContext} from "react";
+import {useThemeContext} from "../customHooks";
+import {CONSTANTS} from "../constants";
 
 import {todosReducer} from "todosReducer";
 import { v4 as uuid } from 'uuid';
 import {getLocalStorageTodos} from "utils/setAndGetLocalStorageValue";
 import {createAddAction, createDeleteAction, createEditAction, createCloseAction, createCheckedAction} from "actions";
-import { ThemeContext } from "App";
 
 import TodoForm from "components/todo_form";
 import Footer from "components/footer";
@@ -13,9 +14,10 @@ import DrawTodo from "components/drawTodo";
 import './todo.css';
 
 
+
 const Todo = () => {
     const [todo, dispatch] = useReducer(todosReducer, getLocalStorageTodos());
-    const {theme} = useContext(ThemeContext);
+    const {theme} = useThemeContext();
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>, inputValue: string) => {
         event.preventDefault();
@@ -43,7 +45,7 @@ const Todo = () => {
     }
 
     return (
-        <div className={theme === 'light' ? 'todo light' : 'todo dark'}>
+        <div className={theme === CONSTANTS.light ? CONSTANTS.todoLight : CONSTANTS.todoDark}>
             <TodoForm handleSubmit={handleSubmit} />
             <DrawTodo todo={todo} handleDelete={handleDelete} handleEdit={handleEdit} handleClose={handleClose} handleChecked={handleChecked} />
             <Footer todo={todo} />
